@@ -1,0 +1,88 @@
+:root {
+  --white: #FFFFFF;
+}
+
+.welcome-screen {
+  display: grid;
+  height: 100vh;
+  align-items: center;
+  background: var(--white);
+}
+
+.welcome-screen img {
+  width: 100%;
+}
+
+.init-screen {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+
+.init-screen img {
+  justify-self: center;
+  height: 100px;
+  width: 100px;
+  margin-top: 1.5em;
+}
+
+.init-screen div {
+  padding: 0 1em;
+}
+
+.lead {
+  justify-self: center;
+}
+
+.card {
+  margin: 0.5em;
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.card img {
+  margin: 1em;
+  max-width: 75px;
+  max-height: 75px;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.text-danger {
+  font-size: 0.8em;
+  color: #dc3545;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 1em;
+  right: 1em;
+}
+
+.bottom label {
+  position: absolute;
+  right: 0.5em;
+  transform: translateY(-1.5em);
+  font-size: 1.5em;
+}
+
+.chat-room {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+
+.right {
+  display: grid;
+  justify-items: end;
+}
+
+.left {
+  display: grid;
+  justify-items: start;
+}
