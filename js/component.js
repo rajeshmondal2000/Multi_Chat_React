@@ -139,7 +139,7 @@ function ChatRoom() {
    <div className="chat-room">
    {message?message.map((item)=>
      <>
-      {item.senderId==sender?<SendMsg msg={item.message} />:<ReceiveMsg msg={item.message} />}
+      {item.senderId==sender?<SendMsg msg={item.message} key={item.timeStamp} />:<ReceiveMsg msg={item.message} key={item.timeStamp} />}
      </>
    ):'Say Hi'}
     <div className="form-group bottom">

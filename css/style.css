@@ -74,7 +74,7 @@ p {
 .chat-room {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1em;
+  grid-gap: 0.5em;
 }
 
 .right {
@@ -82,7 +82,13 @@ p {
   justify-items: end;
 }
 
+.right .card {
+  background: #28a745;
+  color: #fff;
+}
+
 .left {
   display: grid;
   justify-items: start;
 }
+
