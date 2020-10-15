@@ -5,8 +5,14 @@ const timeStamp = (time) => {
   let t = new Date(time).toLocaleTimeString()
   let h = t.slice(0, 2)
   let m = t.slice(3, 5)
-  return dt + "/" + mo + "\n\b" + h + "." + m
+  if(dt == new Date().getDate() && mo == (new Date().getMonth()+1)) {
+    return "Today"+"\n\b"+h+"."+m
+  } else if(dt == (new Date().getDate()-1) && mo == (new Date().getMonth()+1)) {
+    return "Yesterday"+"\n\b"+h+"."+m
+  } else {
+    return dt+"/"+mo+"\n\b"+h+"."+m
   }
+}
 
 function WelcomeScreen() {
   return(
