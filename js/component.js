@@ -1,3 +1,13 @@
+const timeStamp = (time) => {
+  let d = new Date(time).toLocaleDateString()
+  let dt = d.slice(0, 2)
+  let mo = d.slice(3, 5)
+  let t = new Date(time).toLocaleTimeString()
+  let h = t.slice(0, 2)
+  let m = t.slice(3, 5)
+  return dt + "/" + mo + "\n\b" + h + "." + m
+  }
+
 function WelcomeScreen() {
   return(
     <div className="welcome-screen">
@@ -135,13 +145,15 @@ function ChatRoom() {
     document.getElementById("text-send").value = ""
   }
   
+  
   return(
    <div className="chat-room">
+   <p className="lead top-0">{store.getState().Recipient.name}</p>
    <div className="scroll">
    {message?message.map((item)=>
-     <>
-      {item.senderId==sender?<SendMsg msg={item.message} time={item.timeStamp} key={item.timeStamp} />:<ReceiveMsg msg={item.message} time={item.timeStamp} key={item.timeStamp} />}
-     </>
+     <div key={item.timeStamp}>
+      {item.senderId==sender?<SendMsg msg={item.message} time={item.timeStamp} />:<ReceiveMsg msg={item.message} time={item.timeStamp} />}
+     </div>
    ):null}
    </div>
    
@@ -154,22 +166,24 @@ function ChatRoom() {
 }
 
 function ReceiveMsg({ msg, time }) {
+  
   return(
     <div className="left">
       <div className="card">
         <div>{msg}</div>
-        <div className="timestamp">{new Date(time).toLocaleTimeString()}</div>
+        <div className="timestamp danger">{timeStamp(time)}</div>
       </div>
     </div>
   )
 }
 
 function SendMsg({ msg, time }) {
+  
   return(
     <div className="right">
       <div className="card">
         <div>{msg}</div>
-        <div className="timestamp">{new Date(time).toLocaleTimeString()}</div>
+        <div className="timestamp">{timeStamp(time)}</div>
       </div>
     </div>
   )
