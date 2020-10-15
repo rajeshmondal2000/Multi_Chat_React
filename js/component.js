@@ -80,6 +80,15 @@ function Home() {
     }, 1000)
   }, [])
   
+  const Status = (lastSeen)=>{
+    let t = new Date().getTime()
+    if(t-2000 < new Date(lastSeen).getTime() || new Date(lastSeen).getTime() > t+2000) {
+      return 'Online'
+    } else {
+      let rt = timeStamp(lastSeen)
+      return rt
+    }
+  }
   
   return(
     <div>
@@ -94,7 +103,7 @@ function Home() {
           <img src="images/avatar.png" alt="avatar" />
           <div>
             <p className="lead">{item.name}</p>
-            <p className="text-danger">Last Seen: {new Date(item.lastSeen).getHours()+":"+new Date(item.lastSeen).getMinutes()}</p>
+            <div>{Status(item.lastSeen)=='Online'?<p className="text-success">Online</p>:<p className="text-danger">Last Seen: {Status(item.lastSeen)}</p>}</div>
           </div>
         </div>
       ):null}
@@ -148,7 +157,12 @@ function ChatRoom() {
   
   return(
    <div className="chat-room">
-   <p className="lead top-0">{store.getState().Recipient.name}</p>
+   
+   <div className="col-1-4">
+    <img src="images/avatar.png" alt="" />
+    <p className="lead top-0">{store.getState().Recipient.name}</p>
+   </div>
+   
    <div className="scroll">
    {message?message.map((item)=>
      <div key={item.timeStamp}>
