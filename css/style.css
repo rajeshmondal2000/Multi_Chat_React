@@ -74,7 +74,11 @@ p {
   display: grid;
   grid-template-rows: 1.5fr 10fr 1fr;
   grid-gap: 0.5em;
-  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
 }
 
 .chat-room .form-group {
