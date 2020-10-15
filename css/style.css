@@ -85,6 +85,10 @@ p {
 .right .card {
   background: #28a745;
   color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: right;
 }
 
 .left {
@@ -92,3 +96,21 @@ p {
   justify-items: start;
 }
 
+.left .card {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: right;
+}
+
+.scroll {
+  position: absolute;
+  height: 85vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.timestamp {
+  font-size: 0.75em;
+  color: #E5E5E5;
+}

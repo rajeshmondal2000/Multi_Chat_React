@@ -113,7 +113,7 @@ function ChatRoom() {
     firebase.database().ref(channel).on('value', (snapshot)=>{
       let msg = []
       snapshot.forEach((child)=>{
-        msg.push(child.val())
+        msg.unshift(child.val())
       })
       setMessage(msg)
     })
@@ -137,31 +137,41 @@ function ChatRoom() {
   
   return(
    <div className="chat-room">
+   <div className="scroll">
    {message?message.map((item)=>
      <>
-      {item.senderId==sender?<SendMsg msg={item.message} key={item.timeStamp} />:<ReceiveMsg msg={item.message} key={item.timeStamp} />}
+      {item.senderId==sender?<SendMsg msg={item.message} time={item.timeStamp} key={item.timeStamp} />:<ReceiveMsg msg={item.message} time={item.timeStamp} key={item.timeStamp} />}
      </>
-   ):'Say Hi'}
-    <div className="form-group bottom">
-      <input type="text" placeholder="Type Your Messages" className="form-control" id="text-send" />
-      <label onClick={()=>Send()}><ion-icon name="send-sharp"></ion-icon></label>
+   ):null}
+   </div>
+   
+   <div className="form-group bottom">
+    <input type="text" placeholder="Type Your Messages" className="form-control" id="text-send" />
+    <label onClick={()=>Send()}><ion-icon name="send-sharp"></ion-icon></label>
     </div>
    </div>
   )
 }
 
-function ReceiveMsg({ msg }) {
+function ReceiveMsg({ msg, time }) {
   return(
     <div className="left">
-      <div className="card">{msg}</div>
+      <div className="card">
+        <div>{msg}</div>
+        <div className="timestamp">{new Date(time).toLocaleTimeString()}</div>
+      </div>
     </div>
   )
 }
 
-function SendMsg({ msg }) {
+function SendMsg({ msg, time }) {
   return(
     <div className="right">
-      <div className="card">{msg}</div>
+      <div className="card">
+        <div>{msg}</div>
+        <div className="timestamp">{new Date(time).toLocaleTimeString()}</div>
+      </div>
     </div>
   )
 }
+
