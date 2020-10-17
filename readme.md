@@ -14,6 +14,7 @@
   ![ChatRoom](https://firebasestorage.googleapis.com/v0/b/chatrobot-2000.appspot.com/o/IMG_20201017_231152.jpg?alt=media&token=2e85d52a-842a-4ddd-b769-f1fb71a3749d)
   
   See live preview on [https://multi-chat-react.vercel.app](https://multi-chat-react.vercel.app)
+  * Best view on Mobile Devices
   
 # Note
 This Applications Preview is not optimised for production this may take little bit longer to load in the browser than usual. Please Be Patience
