@@ -1,3 +1,5 @@
+const { BrowserRouter, Route, Switch } = window.ReactRouterDOM
+
 const firebaseConfig = {
   apiKey: "AIzaSyCl5YJ26-YKii_c7HK31kuZQRvr2y-IoWQ",
   authDomain: "chatrobot-2000.firebaseapp.com",
@@ -63,7 +65,6 @@ function App() {
     setTimeout(()=>{
     Auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user.uid)
         store.dispatch({ type: 'HOME' })
       } else {
         store.dispatch({ type: 'INIT' })

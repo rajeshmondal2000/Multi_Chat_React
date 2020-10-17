@@ -147,3 +147,11 @@ p {
   height: 40px;
   margin: 0.5em;
 }
+
+.loading {
+  text-align: center;
+}
+
+.lead ion-icon {
+  font-size: 1.25em;
+}

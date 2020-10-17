@@ -31,7 +31,7 @@ function InitScreen() {
       .then(function() {
         firebase.auth().signInAnonymously().then(()=>{
           let user = firebase.auth().currentUser
-          firebase.database().ref("Users/" +user.uid).set({
+          firebase.database().ref("Users/" + user.uid).set({
             name: dname,
             uid: user.uid
           })
@@ -112,7 +112,7 @@ function Home() {
             <div>{Status(item.lastSeen)=='Online'?<p className="text-success">Online</p>:<p className="text-danger">Last Seen: {Status(item.lastSeen)}</p>}</div>
           </div>
         </div>
-      ):null}
+      ):<p className="loading">Loading... </p>}
     </div>
   )
 }
@@ -167,6 +167,9 @@ function ChatRoom() {
    <div className="col-1-4">
     <img src="images/avatar.png" alt="" />
     <p className="lead top-0">{store.getState().Recipient.name}</p>
+    <p className="lead danger" onClick={()=>store.dispatch({ type: 'HOME' })}>
+      <ion-icon name="exit-outline"></ion-icon>
+    </p>
    </div>
    
    <div className="scroll">
